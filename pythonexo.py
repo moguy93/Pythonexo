@@ -1,36 +1,60 @@
-# A single node of a singly linked list
+#!/usr/bin/python3.8
+
 class Node:
-  # constructor
-  def __init__(self, data = None, next=None): 
-    self.data = data
-    self.next = next
+    def __init__(self, data = None, next=None): 
+        self.data = data
+        self.next = next
 
-# A Linked List class with a single head node
 class LinkedList:
-  def __init__(self):  
-    self.head = None
-  
-  # insertion method for the linked list
-  def insert(self, data):
-    newNode = Node(data)
-    if(self.head):
-      current = self.head
-      while(current.next):
-        current = current.next
-      current.next = newNode
-    else:
-      self.head = newNode
-  
-  # print method for the linked list
-  def printLL(self):
-    current = self.head
-    while(current):
-      print(current.data)
-      current = current.next
+    def __init__(self):  
+        self.head = None
 
-# Singly Linked List with insertion and print methods
-LL = LinkedList(
-LL.insert(3)
-LL.insert(4)
-LL.insert(5)
-LL.printLL())
+    def __getitem__(self, index)
+        i = 0
+        current = self.head
+        while (i < index)
+            current = current.next
+            i++
+        return(current.data)
+
+    def append(self, index, data):
+        newNode = Node(data)
+        if(self.head):
+            if (index == 0)
+                newNode.next = self.head
+                self.head = newNode
+                return
+            i = 0
+            current = self.head
+            while(current.next && i < index):
+                current = current.next
+                i++
+            if (current.next)
+                newNode.next = current.next
+            current.next = newNode
+        else:
+            self.head = newNode
+
+    def pop(self, index):
+        if(self.head):
+            if (index == 0 && self.head.next)
+                self.head = self.head.next
+                return
+            if (index == 0)
+                self.head = None
+                return
+            i = 0
+            current = self.head
+            prev = self.head
+            while(current.next && i < index):
+                i++
+                tmp = current.next
+                if (tmp.next):
+                    prev = current
+                    current = tmp
+                else:
+                    tmp = None
+                    current.next = None
+                    return
+            prev.next = current.next
+            current = None
